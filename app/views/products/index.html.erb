@@ -1,0 +1,6 @@
+<h1>Xepa da Laje app</h1>
+<h2>Ganhe dinheiro com seu lixo!</h2>
+
+<% @products.each do |product| %>
+  <p><%=product.name%> - $<%=product.unit_price%> - <%=link_to "Details", product_path(product)%></p>
+<%end%>
