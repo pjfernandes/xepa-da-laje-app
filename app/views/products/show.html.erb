@@ -3,5 +3,5 @@
 <p>Unit price: <%=@product.unit_price%></p>
 <p>Quantity: <%=@product.quantity%></p>
 <p>Description: <%=@product.description%></p>
-<p>Seller: <%=@user.email%></p>
+<p>Seller: <%=@product.user.email%></p>
 <%=link_to "Back", root_path%>
