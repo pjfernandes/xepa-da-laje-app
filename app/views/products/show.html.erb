@@ -4,4 +4,9 @@
 <p>Quantity: <%=@product.quantity%></p>
 <p>Description: <%=@product.description%></p>
 <p>Seller: <%=@product.user.email%></p>
-<%=link_to "Back", root_path%>
+<%=link_to "Back", root_path%> |
+<% if user_signed_in? %>
+  <%=link_to "Buy!", new_product_order_path(@product)%>
+<% else %>
+  <%=link_to "Sign in to buy!",new_user_session_path%>
+<%end%>
