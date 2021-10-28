@@ -1,6 +1,15 @@
-<h1>Xepa da Laje app</h1>
-<h2>Ganhe dinheiro com seu lixo!</h2>
+
 
 <% @products.each do |product| %>
-  <p><%=product.name%> - $<%=product.unit_price%> - <%=link_to "Buy!", product_path(product)%></p>
+ <div class="card-product d-flex justify-content-between">
+  <img src="https://images.unsplash.com/photo-1547056961-3c25e9140b05?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpY2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" />
+
+    <div class="product-description">
+      <h2><%=product.name%></h2>
+      <p>Unit: <strong>$<%=product.unit_price%></strong></p>
+      <p><%=product.description%></p>
+    </div>
+
+    <a href="<%=product_path(product)%>"><button type="button" class="btn btn-success m-4">Buy!</button></a>
+  </div>
 <%end%>
