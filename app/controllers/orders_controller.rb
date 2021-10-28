@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
 
-
+  def index
+    @orders = Order.all
+  end
 
   def new
     @order = Order.new
@@ -23,7 +25,7 @@ class OrdersController < ApplicationController
     @order.product = @product
     @order.user = current_user
     @order.save
-    redirect_to product_order_path(@product), notice: 'Order was successfully created.'
+    redirect_to root_path, notice: 'Order was successfully created.'
   end
 
   # private
