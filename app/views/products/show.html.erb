@@ -6,7 +6,7 @@
 <p>Seller: <%=@product.user.email%></p>
 <%=link_to "Back", root_path%> |
 <% if user_signed_in? %>
-  <%=link_to "Buy!", new_product_order_path(@product)%>
+  <%=link_to "Buy!", product_orders_path(@product,current_user), method: :post%>
 <% else %>
   <%=link_to "Sign in to buy!",new_user_session_path%>
 <%end%>
