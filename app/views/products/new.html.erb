@@ -28,6 +28,10 @@
       <%= f.text_field :description%>
     </div>
 
+    <div class="form-group justify-content-center">
+      <%= f.input :photo, as: :file %>
+    </div>
+
       <%= f.submit %>
     <% end %>
     <a href=<%=root_path%> class="btn btn-danger text-center mt-4">Back</a>
