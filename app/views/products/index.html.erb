@@ -2,6 +2,10 @@
 <div class="main-card m-2 text-center p-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/demolition-rubble-picture-id157637703?b=1&k=20&m=157637703&s=170667a&w=0&h=ClTovdBmulqBTy9nSje4xtXSjFpyqm6kfMxZfnLs5w4=)">
   Choose your construction trash!
 </div>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <% @products.each do |product| %>
  <div class="card-product d-flex justify-content-between align-items-center">
