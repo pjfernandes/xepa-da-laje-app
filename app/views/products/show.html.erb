@@ -1,7 +1,8 @@
 <h1 class="text-center">Buy <%= @product.name %>! </h1>
 
 <div class="card-product-show">
-<img src="https://source.unsplash.com/R_fC9UYlWp4" alt="bricks" class="rounded">
+<%# <img src="https://source.unsplash.com/R_fC9UYlWp4" alt="bricks" class="rounded"> %>
+<%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos-show">
     <p>Unit price: <%=@product.unit_price%></p>
     <p>Quantity: <%=@product.quantity%></p>
@@ -9,6 +10,7 @@
     <p>Seller: <%=@product.user.email%></p>
   </div>
 </div>
+
 
 <div class="text-center">
 <%=link_to "Back", root_path, class: "btn btn-danger m-4"%>
