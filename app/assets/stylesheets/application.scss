@@ -34,7 +34,7 @@
 .form-new-user {
   background-color: white;
   width: 280px;
-  height: 520px;
+  height: 710px;
   padding-top: 20px;
   border-radius: 8px;
   margin-top: 5px;
@@ -44,10 +44,15 @@
 .form-login {
   background-color: white;
   width: 280px;
-  height: 370px;
+  height: 390px;
   padding-top: 20px;
   border-radius: 8px;
   margin-top: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
+}
+
+.fields {
+  margin-left: 10%;
+  width: 80%;
 }
