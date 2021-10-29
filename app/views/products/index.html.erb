@@ -10,7 +10,7 @@
 
     <div class="product-description ml-2 p-2 text-left align-items-center">
       <h2 class="product-name"><%=product.name%></h2>
-      <p>Unit: <strong>$<%=product.unit_price%></strong></p>
+      <p>Unit: <strong>$<%=product.unit_price%></strong> - City: <strong><%=product.user.city.capitalize%></strong></p>
       <p><%=product.description%></p>
     </div>
 </div>
