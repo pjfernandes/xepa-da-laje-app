@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "products#index"
+  root to: "pages#home"
+
 
   resources :products, only: %i[new create index show] do
     resources :orders, only: [ :new, :create ]
