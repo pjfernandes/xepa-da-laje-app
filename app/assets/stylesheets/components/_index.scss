@@ -3,3 +3,11 @@
 @import "avatar";
 @import "navbar";
 @import "card_show";
+
+.product-name {
+  text-shadow: 0.5px 0.5px 0.5px black;
+}
+.index-container {
+    position: relative;
+    bottom: -88px;
+}

@@ -3,7 +3,7 @@
 
 // const loadDynamicBannerText = () => {
 //   new Typed('#banner-typed-text', {
-//     strings: ["Choose your construction trash!","aa"],
+//     strings: ["Choose your construction trash!"],
 //     typeSpeed: 70,
 //     loop: true
 //   });

@@ -1,36 +1,50 @@
-<h2>Sign up</h2>
+<h2 class="text-center pt-2">Sign up</h2>
+<div class="container-form text-center d-flex justify-content-center p-4">
+  <div class="form-new-user text-center">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <div class="form-group justify-content-center">
+        <%= f.label :first_name, required: true %>
+        <br>
+        <%= f.text_field :first_name %>
+      </div>
 
-  <div class="form-inputs">
-  <%= f.input :first_name,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "first-name" }%>
+      <div class="form-group justify-content-center">
+        <%= f.label :last_name, required: true %>
+        <br>
+        <%= f.text_field :last_name %>
+      </div>
 
-   <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "last-name" }%>
+       <div class="form-group justify-content-center">
+        <%= f.label :email, required: true %>
+        <br>
+        <%= f.text_field :email%>
+      </div>
 
+      <div class="form-group justify-content-center">
+              <%= f.label :password, required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+              <br>
+              <%= f.text_field :password%>
+      </div>
 
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+       <div class="form-group justify-content-center">
+              <%= f.label :password_confirmation, required: true,
+                          input_html: { autocomplete: "new-password" } %>
+              <br>
+              <%= f.text_field :password_confirmation%>
+        </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: "btn btn-success text-center" %>
+      </div>
+
+    <% end %>
+    <br>
+     <%=link_to "Back", root_path %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+</div>
