@@ -1,8 +1,8 @@
-<h1 class="text-center"><%= @product.name %> </h1>
+<h1 class="text-center">Buy <%= @product.name %>! </h1>
 
 <div class="card-product-show">
-<img src="https://source.unsplash.com/R_fC9UYlWp4" alt="bricks">
-  <div "card-product-infos-show ">
+<img src="https://source.unsplash.com/R_fC9UYlWp4" alt="bricks" class="rounded">
+  <div class="card-product-infos-show">
     <p>Unit price: <%=@product.unit_price%></p>
     <p>Quantity: <%=@product.quantity%></p>
     <p>Description: <%=@product.description%></p>
@@ -11,9 +11,9 @@
 </div>
 
 <div class="text-center">
-<%=link_to "Back", root_path%> |
+<%=link_to "Back", root_path, class: "btn btn-danger m-4"%>
 <% if user_signed_in? %>
-  <%=link_to "Buy!", product_orders_path(@product,current_user), method: :post%>
+  <%=link_to "Buy!", product_orders_path(@product,current_user), method: :post, class: "btn btn-success m-4"%>
 <% else %>
   <%=link_to "Sign in to buy!", new_user_session_path, class: "btn btn-success m-4"%>
 <%end%>

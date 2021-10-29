@@ -1,6 +1,12 @@
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+}
+
+.xepa {
+text-shadow: 1px 1px 2px black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +15,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.fas {
+  margin-top: 5px;
+  font-size: 30px;
 }

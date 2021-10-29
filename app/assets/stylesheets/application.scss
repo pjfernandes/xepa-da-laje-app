@@ -8,7 +8,46 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/productcard"
+@import "components/productcard";
+@import "components/footer";
+
+.index-container {
+    position: relative;
+    bottom: -88px;
+}
+
+.form-new-product {
+  background-color: white;
+  width: 280px;
+  height: 440px;
+  padding-top: 20px;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.form-new-user {
+  background-color: white;
+  width: 280px;
+  height: 520px;
+  padding-top: 20px;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.form-login {
+  background-color: white;
+  width: 280px;
+  height: 370px;
+  padding-top: 20px;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
