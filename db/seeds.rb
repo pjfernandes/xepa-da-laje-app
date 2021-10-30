@@ -12,7 +12,7 @@
     unit_price: Faker::Commerce.price,
     quantity: (0..10).to_a.sample,
     description: Faker::Commerce.product_name,
-    user_id: 1
+    user_id: 7
   )
   puts "product #{p.id} created"
 end
