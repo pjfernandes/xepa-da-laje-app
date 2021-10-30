@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-    skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     if params[:query].present?
@@ -24,29 +24,20 @@ class ProductsController < ApplicationController
       @markers = @users.geocoded.map do |user|
         {
           lat: user.latitude,
-          lng: user.longitude
-          #info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+          lng: user.longitude,
+          # info_window: render_to_string(partial: "info_window", locals: { user: user })
         }
       end
-
   end
 
   def show
     @product = Product.find(params[:id])
-    #@user = User.find(@product.user_id)
     @user = User.find(@product.user_id)
   end
 
   def new
     @product = Product.new
   end
-
-  # def create
-  #   @product = Product.new(product_params)
-  #   @product.user = current_user
-  #   @product.save
-  #   redirect_to root_path
-  # end
 
   def create
     @product = Product.new(product_params)
