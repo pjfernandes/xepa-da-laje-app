@@ -41,6 +41,16 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    address = "#{current_user.address}, #{current_user.city}"
+    new_coordinates = Geocoder.coordinates(address)
+
+    unless new_coordinates.nil?
+      current_user.address = address
+      current_user.longitude = new_coordinates[0]
+      current_user.latitude = new_coordinates[1]
+    end
+
+    current_user.save
     @product.user = current_user
     if @product.save
       redirect_to root_path, notice: 'Product was successfully created.'
