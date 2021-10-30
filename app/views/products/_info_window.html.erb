@@ -1,0 +1,10 @@
+
+
+<p class="text-left">
+  <strong>Products</strong>
+  <br>
+  <% products = Product.where(user_id: user) %>
+  <%products.each do |product|%>
+      <%=product.name.capitalize%>
+  <%end%>
+</p>
