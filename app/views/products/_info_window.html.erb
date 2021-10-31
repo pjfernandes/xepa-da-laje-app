@@ -3,6 +3,6 @@
   <br>
   <% products = Product.where(user_id: user) %>
   <%products.each do |product|%>
-      <%=product.name.capitalize%>
+    <%=link_to product.name.capitalize, product_path(product)%>
   <%end%>
 </p>
