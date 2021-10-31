@@ -28,11 +28,14 @@ import "bootstrap";
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
+import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
   // loadDynamicBannerText();
   initMapbox();
+  initAutocomplete();
 });

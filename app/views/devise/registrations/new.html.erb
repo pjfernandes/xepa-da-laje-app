@@ -4,31 +4,31 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
-        <%= f.input :first_name, required: true, input_html: {class: "fields"} %>
+        <%= f.input :first_name, required: true, input_html: {class: "fields-new"} %>
 
-        <%= f.input :last_name, required: true,input_html: {class: "fields"} %>
+        <%= f.input :last_name, required: true,input_html: {class: "fields-new"} %>
 
-        <%= f.input :email, required: true, input_html: {class: "fields"} %>
+        <%= f.input :email, required: true, input_html: {class: "fields-new"} %>
 
-        <%= f.input :address, required: true,input_html: {class: "fields"} %>
+        <%= f.input :address, required: true,input_html: {class: "fields-new", id: "geo"} %>
 
-        <%= f.input :city, required: true,input_html: {class: "fields"} %>
+        <%= f.input :city, required: true,input_html: {class: "fields-new"} %>
 
-        <%= f.input :password, input_html: {class: "fields"},
+        <%= f.input :password, input_html: {class: "fields-new"},
           hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
           required: true,
-          input_html: { autocomplete: "new-password" }, input_html: {class: "fields"} %>
+          input_html: { autocomplete: "new-password" }, input_html: {class: "fields-new"} %>
 
         <%= f.input :password_confirmation,  required: true,
-            input_html: { autocomplete: "new-password" }, input_html: {class: "fields"}%>
+            input_html: { autocomplete: "new-password" }, input_html: {class: "fields-new"}%>
 
-
-        <%= f.button :submit, "Sign up", class: "btn btn-success text-center" %>
+        <br>
+        <%= f.button :submit, "Sign up", class: "btn btn-success text-center mb-5" %>
 
     <% end %>
-    <br>
-    <br>
-     <%=link_to "Back", root_path %>
+    <div class="p-4">
+     <%=link_to "Back", root_path%>
+    </div>
   </div>
 
 
