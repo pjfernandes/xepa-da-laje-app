@@ -45,12 +45,21 @@ class ProductsController < ApplicationController
     new_coordinates = Geocoder.coordinates(address)
 
     unless new_coordinates.nil?
-      current_user.address = address
-      current_user.longitude = new_coordinates[0]
-      current_user.latitude = new_coordinates[1]
+      # current_user.longitude =
+      # current_user.latitude = new_coordinates[0]
+      # current_user.save
+      user = User.find(current_user.id)
+      user.latitude = new_coordinates[0]
+      user.longitude = new_coordinates[1]
+      user.save!
+    else
+      new_coordinates = Geocoder.coordinates(current_user.city)
+      user = User.find(current_user.id)
+      user.latitude = new_coordinates[0]
+      user.longitude = new_coordinates[1]
+      user.save!
     end
 
-    current_user.save
     @product.user = current_user
     if @product.save
       redirect_to root_path, notice: 'Product was successfully created.'
