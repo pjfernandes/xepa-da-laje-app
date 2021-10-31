@@ -28,8 +28,8 @@
       <%= f.text_field :description%>
     </div>
 
-      <%= f.submit %>
+      <%= f.button :submit, "Sell product", class: "btn btn-success text-center" %>
     <% end %>
-    <a href=<%=root_path%> class="btn btn-danger text-center mt-4">Back</a>
+     <%=link_to "Back", :back, class: "btn btn-danger text-center mt-3"%>
   </div>
 </div>

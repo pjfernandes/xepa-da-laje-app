@@ -40,7 +40,19 @@
   border-radius: 8px;
   margin-top: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-right: 10px;
+  padding-right: 13px;
+}
+
+.form-edit-user {
+  background-color: white;
+  width: 470px;
+  height: 680px;
+  padding-top: 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // margin-right: 45px;
+  padding-right: 38px;
 }
 
 .form-login {
@@ -62,4 +74,9 @@
 .fields-new {
   margin-left: 4.5%;
   width: 93.5%;
+}
+
+.fields-edit {
+  margin-left: 4.5%;
+  width: 100%;
 }
