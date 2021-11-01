@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     if params[:query].present?
-      @products = Product.where("name ILIKE ?", "%#{params[:query]}%")
+      @products = Product.search_by_city_and_name(params[:query])
     else
       @products = Product.all
     end
@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :unit_price, :quantity, :description)
+    params.require(:product).permit(:name, :unit_price, :quantity, :description, :photo)
   end
 
 end
