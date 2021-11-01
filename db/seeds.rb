@@ -16,5 +16,4 @@
   )
   puts "product #{p.id} created"
 end
-
 puts "DONE!"

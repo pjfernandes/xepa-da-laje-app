@@ -7,6 +7,28 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+
+      #  sql_query = " \
+      #   movies.title ILIKE :query \
+      #   OR movies.synopsis ILIKE :query \
+      #   OR directors.first_name ILIKE :query \
+      #   OR directors.last_name ILIKE :query \
+      # "
+      # @users = User.joins(:product).where(sql_query, query: "%#{params[:query]}%")
+
+      #@users = @products.map { |product| product.user }.uniq
+      #@users = User.joins(:products).where(products:{"name ILIKE ?", "%#{params[:query]}%"})
+      #@users = User.joins("SELECT * FROM users JOIN products ON users.id = products.user_id;")
+      @users =  User.where(id: @products.map(&:user_id))
+
+      @markers = @users.geocoded.map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude
+          #info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+        }
+      end
+
   end
 
   def show
@@ -38,7 +60,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :unit_price, :quantity, :description)
+    params.require(:product).permit(:name, :unit_price, :quantity, :description, :photo)
   end
 
 end
