@@ -32,8 +32,8 @@
       <%= f.input :photo, as: :file %>
     </div>
 
-      <%= f.submit %>
-    <% end %>
-    <a href=<%=root_path%> class="btn btn-danger text-center mt-4">Back</a>
+    <%= f.button :submit, "Sell product", class: "btn btn-success text-center" %>
+   <% end %>
+     <%=link_to "Back", :back, class: "btn btn-danger text-center mt-3"%>
   </div>
 </div>

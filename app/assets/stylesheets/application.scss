@@ -14,6 +14,7 @@
 @import "pages/index";
 @import "components/productcard";
 @import "components/footer";
+@import "components/map";
 
 .index-container {
     position: relative;
@@ -33,12 +34,25 @@
 
 .form-new-user {
   background-color: white;
-  width: 280px;
-  height: 710px;
+  width: 470px;
+  height: 760px;
   padding-top: 20px;
   border-radius: 8px;
-  margin-top: 5px;
+  margin-top: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding-right: 13px;
+}
+
+.form-edit-user {
+  background-color: white;
+  width: 470px;
+  height: 680px;
+  padding-top: 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // margin-right: 45px;
+  padding-right: 38px;
 }
 
 .form-login {
@@ -55,4 +69,14 @@
 .fields {
   margin-left: 10%;
   width: 80%;
+}
+
+.fields-new {
+  margin-left: 4.5%;
+  width: 93.5%;
+}
+
+.fields-edit {
+  margin-left: 4.5%;
+  width: 100%;
 }
