@@ -68,3 +68,6 @@ gem 'devise'
 gem 'faker'
 gem 'simple_form'
 gem 'geocoder'
+
+# Search Engine
+gem 'pg_search', '~> 2.3.0'
