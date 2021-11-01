@@ -10,8 +10,11 @@
 <% @products.each do |product| %>
  <div class="card-product d-flex justify-content-between align-items-center">
  <div class="d-flex align-items-center">
-  <%# <img class="ml-3" src="https://images.unsplash.com/photo-1547056961-3c25e9140b05?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpY2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" /> %>
+ <% if product.photo.key%>
   <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+  <%else%>
+  <img class="ml-3" src="https://images.unsplash.com/photo-1547056961-3c25e9140b05?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpY2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" />
+  <%end%>
     <div class="product-description ml-2 p-2 text-left align-items-center">
       <h2 class="product-name"><%=product.name%></h2>
       <p>Unit: <strong>$<%=product.unit_price%></strong> - City: <strong><%=product.user.city.capitalize%></strong></p>
