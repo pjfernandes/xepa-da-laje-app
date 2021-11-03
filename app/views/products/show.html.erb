@@ -12,14 +12,27 @@
     <p>Description: <%=@product.description%></p>
     <p>Seller: <%=@product.user.email%></p>
   </div>
+  <div>
+    <%= simple_form_for @order, url:product_orders_path(@product.id,current_user) do |f| %>
+      <%= f.input :quantity, required: true %>
+    <div class="text-center">
+      <% if user_signed_in? && (current_user != @user)%>
+        <%= f.button :submit, class: "btn btn-success m-4" %>
+      <% elsif user_signed_in? == false %>
+        <%=link_to "Sign in to buy!", new_user_session_path, class: "btn btn-success m-4"%>
+      <%end%>
+    <% end %>
+    <%=link_to "Back", root_path, class: "btn btn-danger m-4"%>
+    </div>
+  </div>
 </div>
 
 
-<div class="text-center">
+<%# <div class="text-center">
 <%=link_to "Back", :back, class: "btn btn-danger m-4"%>
-<% if user_signed_in? && (current_user != @user) %>
-  <%=link_to "Buy!", product_orders_path(@product,current_user), method: :post, class: "btn btn-success m-4"%>
-<% elsif user_signed_in? == false %>
-  <%=link_to "Sign in to buy!", new_user_session_path, class: "btn btn-success m-4"%>
-<%end%>
-</div>
+<%# <% if user_signed_in? && (current_user != @user) %>
+  <%# <%=link_to "Buy!", product_orders_path(@product,current_user), method: :post, class: "btn btn-success m-4"%>
+<%# <% elsif user_signed_in? == false %>
+  <%# <%=link_to "Sign in to buy!", new_user_session_path, class: "btn btn-success m-4"%>
+<%# <%end%>
+<%# </div> %>
