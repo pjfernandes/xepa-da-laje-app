@@ -21,11 +21,20 @@ class OrdersController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    @order = Order.new
+    @order = Order.new(order_params)
     @order.product = @product
     @order.user = current_user
-    @order.save
-    redirect_to root_path, notice: 'Order was successfully created.'
+    if @product.quantity == 0
+      redirect_to product_path(@product), notice: 'Product not available.'
+    elsif @order.quantity > @product.quantity
+      redirect_to product_path(@product), notice: 'Quantity not available.'
+    else
+      old_product_quantity = @product.quantity
+      @product.quantity = old_product_quantity - @order.quantity
+      @product.save
+      @order.save
+      redirect_to product_path(@product), notice: 'Order was successfully created.'
+    end
   end
 
   # private

@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_10_29_185829) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -75,8 +76,6 @@ ActiveRecord::Schema.define(version: 2021_10_29_185829) do
     t.string "last_name"
     t.string "address"
     t.string "city"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
