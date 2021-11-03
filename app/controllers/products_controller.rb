@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-    skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     if params[:query].present?
@@ -24,32 +24,43 @@ class ProductsController < ApplicationController
       @markers = @users.geocoded.map do |user|
         {
           lat: user.latitude,
-          lng: user.longitude
-          #info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+          lng: user.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { user: user })
         }
       end
-
   end
 
   def show
     @product = Product.find(params[:id])
-    #@user = User.find(@product.user_id)
     @user = User.find(@product.user_id)
+    @order = Order.new
   end
 
   def new
     @product = Product.new
   end
 
-  # def create
-  #   @product = Product.new(product_params)
-  #   @product.user = current_user
-  #   @product.save
-  #   redirect_to root_path
-  # end
-
   def create
     @product = Product.new(product_params)
+    address = "#{current_user.address}, #{current_user.city}"
+    new_coordinates = Geocoder.coordinates(address)
+
+    unless new_coordinates.nil?
+      # current_user.longitude =
+      # current_user.latitude = new_coordinates[0]
+      # current_user.save
+      user = User.find(current_user.id)
+      user.latitude = new_coordinates[0]
+      user.longitude = new_coordinates[1]
+      user.save!
+    else
+      new_coordinates = Geocoder.coordinates(current_user.city)
+      user = User.find(current_user.id)
+      user.latitude = new_coordinates[0]
+      user.longitude = new_coordinates[1]
+      user.save!
+    end
+
     @product.user = current_user
     if @product.save
       redirect_to root_path, notice: 'Product was successfully created.'

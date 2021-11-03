@@ -76,3 +76,6 @@ gem 'geocoder'
 
 # Search Engine
 gem 'pg_search', '~> 2.3.0'
+
+gem 'dotenv-rails'
+gem 'cloudinary', '~> 1.16.0'
